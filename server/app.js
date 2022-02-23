@@ -6,19 +6,23 @@ var logger = require('morgan');
 const cors = require('cors')
 var indexRouter = require('./routes/index');
 const mongoose = require('mongoose')
+require('dotenv').config()
 
 var app = express();
-dbURI = 'mongodb+srv://test1234:test1234@cluster0.ywrw3.mongodb.net/LibraryDatabase?retryWrites=true&w=majority'
-mongoose.connect(dbURI)
+const dbURI = process.env.MONGODB_URI
+mongoose.connect(process.env.MONGODB_URI)
 .then(
   console.log('Connected to database')
  )
 .then(
-  app.listen(5000, ()=>{
+  app.listen(process.env.PORT || 5001, ()=>{
     console.log(`server listening at port 5000`)
   })
 )
 
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'));
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,7 +32,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 //ROUTES
