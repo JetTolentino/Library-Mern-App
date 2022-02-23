@@ -23,49 +23,49 @@ const { addStudent,
 //STUDENT ROUTER
 
 //ADD STUDENT
-router.post('/addstudent', authorizeToken , addStudent)
+router.post('/api/addstudent', authorizeToken , addStudent)
 //GET STUDENT LIST
-router.get('/studentlist', authorizeToken , studentList)
+router.get('/api/studentlist', authorizeToken , studentList)
 // GET STUDENTS WITH BOOKS LENDED
-router.get('/studentbooks', authorizeToken , studentBooks)
+router.get('/api/studentbooks', authorizeToken , studentBooks)
 //GET ONE STUDENT
-router.get('/studentlist/:id', authorizeToken , getOneStudent)
+router.get('/api/studentlist/:id', authorizeToken , getOneStudent)
 //EDIT STUDENT
-router.post('/studentlist/:id', authorizeToken , editStudent)
+router.post('/api/studentlist/:id', authorizeToken , editStudent)
 //DELETE STUDENT
-router.delete('/studentlist/:id', authorizeToken , deleteStudent)
+router.delete('/api/studentlist/:id', authorizeToken , deleteStudent)
 
 
 //BOOKS ROUTER//
 
 /* ADD BOOK */
-router.post('/addbook', authorizeToken , addBook)
+router.post('/api/addbook', authorizeToken , addBook)
 //GET BOOKLIST
-router.get('/booklist', authorizeToken , bookList)
+router.get('/api/booklist', authorizeToken , bookList)
 //GET ONE BOOK
-router.get('/booklist/:id', authorizeToken , getOneBook)
+router.get('/api/booklist/:id', authorizeToken , getOneBook)
 //EDIT BOOK
-router.post('/booklist/:id', authorizeToken , editBook)
+router.post('/api/booklist/:id', authorizeToken , editBook)
 //DELETE BOOK 
-router.delete('/booklist/:id', authorizeToken , deleteBook)
+router.delete('/api/booklist/:id', authorizeToken , deleteBook)
 
 
 
 //LEND/RETURN ROUTER
 
 //LEND BOOK TO STUDENT
-router.post('/lendbook', authorizeToken , lendBook)
+router.post('/api/lendbook', authorizeToken , lendBook)
 //RETURN BOOK
-router.post('/returnbook', authorizeToken , returnBook)
+router.post('/api/returnbook', authorizeToken , returnBook)
 
 
 
 //ADMIN ROUTER
 
 //NEW ADMIN
-router.post('/newadmin' , newAdmin)
+router.post('/api/newadmin' , newAdmin)
 //LOGIN ADMIN
-router.post('/login' , loginAdmin)
+router.post('/api/login' , loginAdmin)
 
 
 function authorizeToken (req, res, next){
