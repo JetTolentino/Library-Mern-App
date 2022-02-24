@@ -17,7 +17,7 @@ const StudentList = () => {
 
         axios({
             method: 'GET',
-            url: 'http://localhost:5000/studentlist',
+            url: 'https://library-app-mern.herokuapp.com/studentlist',
             headers: {
                 'authorization' : `Bearer ${token}`
             },
@@ -88,7 +88,7 @@ const StudentList = () => {
     const handleSubmit = (e) => {
         axios({
             method: 'POST',
-            url: 'http://localhost:5000/addstudent',
+            url: 'https://library-app-mern.herokuapp.com/addstudent',
             data: {
                 studentId,
                 firstName,

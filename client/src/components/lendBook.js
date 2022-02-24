@@ -13,7 +13,7 @@ const LendBook = () => {
         e.preventDefault()
         axios({
             method: 'POST',
-            url: 'http://localhost:5000/lendbook',
+            url: 'https://library-app-mern.herokuapp.com/lendbook',
             data: {
                 studentId,
                 bookId
