@@ -112,7 +112,7 @@ function Home(){
     const checkAuthorization = async () => {
         const res =  await axios({
             method: 'GET',
-            url: 'https://library-app-mern.herokuapp.com/studentbooks',
+            url: 'https://library-app-mern.herokuapp.com/api/studentbooks',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }

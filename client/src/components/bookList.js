@@ -17,7 +17,7 @@ const BookList = () => {
           
         axios({
             method: "GET",
-            url: 'http://localhost:5000/booklist',
+            url: 'https://library-app-mern.herokuapp.com/api/booklist',
             headers: {
                 'authorization': `Bearer ${token}`
             }
@@ -70,7 +70,7 @@ const BookList = () => {
     const handleSubmit = (e) => {
         axios({
             method: 'POST',
-            url : 'https://library-app-mern.herokuapp.com/addbook',
+            url : 'https://library-app-mern.herokuapp.com/api/addbook',
             data: {
                 bookId,
                 title,

@@ -15,7 +15,7 @@ const ReturnBook = () => {
         e.preventDefault()
         axios({
             method:'POST',
-            url:'https://library-app-mern.herokuapp.com/returnbook',
+            url:'https://library-app-mern.herokuapp.com/api/returnbook',
             data : {
                 studentId,
                 bookId
