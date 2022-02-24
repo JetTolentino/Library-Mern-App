@@ -19,14 +19,20 @@ const newAdmin = async(req,res) => {
 
 const loginAdmin = async(req,res) =>{
     const {username, password} = req.body
-    const user = await Admin.findOne({username})
-    const auth = await bcrypt.compare(password , user.password)
-    console.log(username, password)
-    if(auth){
-      const accessToken = jwt.sign({user} , 'secret')
-      res.json({accessToken})
-  
+    try{
+      const user = await Admin.findOne({username})
+      const auth = await bcrypt.compare(password , user.password)
+      console.log(username, password)
+      if(auth){
+        const accessToken = jwt.sign({user} , 'secret')
+        res.json({accessToken})
+    
+      }
     }
+    catch(err){
+      res.send('error logging in')
+    }
+
   
   }
 

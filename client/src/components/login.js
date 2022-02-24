@@ -26,9 +26,15 @@ const Login = () => {
         password
       }
     }).then(res => {
-      localStorage.setItem('token', res.data.accessToken)
-      localStorage.setItem('isLoggedIn', true)
-      navigate('/home')
+      if(res.data == 'error logging in'){
+        alert('Invalid Credentials')
+      }
+      if(res.data.accessToken){
+        localStorage.setItem('token', res.data.accessToken)
+        localStorage.setItem('isLoggedIn', true)
+        navigate('/home')
+      }
+
     })
     } 
      
