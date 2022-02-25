@@ -5,7 +5,7 @@
     },
     "proxies": {
       "/api/": {
-        "origin": "https://library-app-mern.herokuapp.com/"
+        "origin": "https://library-app-mern.herokuapp.com/api"
       }
     }
   }
