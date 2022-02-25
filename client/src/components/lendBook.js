@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {Form, Button} from 'react-bootstrap'
-import { useState , useEffect} from 'react';
+import { useState } from 'react';
 
 const LendBook = () => {
 
@@ -24,7 +24,7 @@ const LendBook = () => {
         }).then(res => {
             setStudentId('')
             setBookId('')
-            if(res.data != 'FAILED TO LEND BOOK')
+            if(res.data !== 'FAILED TO LEND BOOK')
             alert('Book Successfully Lended')
             else{
                 alert('Book Lending Failed \n Try Again')

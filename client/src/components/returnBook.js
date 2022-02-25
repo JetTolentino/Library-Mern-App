@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {Form, Button } from 'react-bootstrap'
-import { useState , useEffect} from 'react';
-import StudentList from './studentList';
+import { useState } from 'react';
+
 
 
 
@@ -24,7 +24,7 @@ const ReturnBook = () => {
                 'authorization': `Bearer ${token}`
             }
         }).then(res => {
-            if(res.data != 'FAILED TO RETURN BOOK'){
+            if(res.data !== 'FAILED TO RETURN BOOK'){
 
                 alert('Book Successfully Returned')
             }

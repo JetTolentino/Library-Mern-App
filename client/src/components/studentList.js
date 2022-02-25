@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Modal,Button } from "react-bootstrap"
 const StudentList = () => {
     const [students, setStudents] = useState([])
-    const [books , setBooks] = useState([])
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -14,7 +13,7 @@ const StudentList = () => {
 
     useEffect(() => {
         let isMounted = true;  
-
+        
         axios({
             method: 'GET',
             url: 'https://library-app-mern.herokuapp.com/api/studentlist',
@@ -25,14 +24,14 @@ const StudentList = () => {
         }).then(res => setStudents(res.data))
 
         return () => { isMounted = false }; 
-      }, []); 
+      }, [token]); 
 
     
 
     const BooksBorrowed = (props) => {
         const booksBorrowed = props.booksBorrowed
         console.log(booksBorrowed)
-        if(booksBorrowed.length == 0){
+        if(booksBorrowed.length === 0){
             console.log('no books')
             return ''
         }

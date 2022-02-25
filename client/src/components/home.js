@@ -1,10 +1,9 @@
 import {Book, ArrowReturnLeft, PersonLinesFill ,CardList} from 'react-bootstrap-icons'
-import React, { useEffect, useState} from 'react';
+import React, {  useState } from 'react';
 import BookList from './bookList';
 import StudentList from './studentList';
 import LendBook from './lendBook';
 import ReturnBook from './returnBook';
-import axios from 'axios';
 import {Navigate , useNavigate} from 'react-router-dom'
 
 function Home(){
@@ -13,7 +12,6 @@ function Home(){
     const [returnBook, setReturnBook] = useState(false)
     const [bookList, setBookList] = useState(false)
     const [studentList, setStudentList] = useState(false)
-    const [isAuthorized , setIsAuthorized] = useState(false)
     const navigate = useNavigate()
 
 
@@ -109,18 +107,7 @@ function Home(){
         return <Navigate to='/login' />
     }
 
-    const checkAuthorization = async () => {
-        const res =  await axios({
-            method: 'GET',
-            url: 'https://library-app-mern.herokuapp.com/api/studentbooks',
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-        })
-        if(res.data !== 'invalid token' || res.data !== 'no token found'){
-            setIsAuthorized(true)
-        }
-    }
+
 
     return(
         <div>

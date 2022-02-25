@@ -25,7 +25,7 @@ const BookList = () => {
           if (isMounted) setBooks(res.data);    
         })
         return () => { isMounted = false }; 
-      }, []); 
+      }, [token]); 
 
 
     const Book = (props) =>{
@@ -35,7 +35,7 @@ const BookList = () => {
         const bookId = props.bookId
 
         const isAvailable = (availability)=>{
-            if(availability == true){
+            if(availability === true){
                 return(
                     <td className="text-success">Available</td>
                 )

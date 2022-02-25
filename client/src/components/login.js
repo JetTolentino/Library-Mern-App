@@ -1,6 +1,6 @@
 import { useState,  } from "react";
 import axios from 'axios'
-import {Navigate ,useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const Login = () => {
 
@@ -26,7 +26,7 @@ const Login = () => {
         password
       }
     }).then(res => {
-      if(res.data == 'error logging in'){
+      if(res.data === 'error logging in'){
         alert('Invalid Credentials')
       }
       if(res.data.accessToken){
