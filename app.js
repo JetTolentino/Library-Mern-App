@@ -6,7 +6,6 @@ var logger = require('morgan');
 const cors = require('cors')
 var indexRouter = require('./routes/index');
 const mongoose = require('mongoose')
-const path = require('path')
 require('dotenv').config()
 
 var app = express();
