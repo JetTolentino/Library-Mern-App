@@ -6,7 +6,6 @@ var logger = require('morgan');
 const cors = require('cors')
 var indexRouter = require('./routes/index');
 const mongoose = require('mongoose')
-const path = require('path')
 require('dotenv').config()
 
 var app = express();
@@ -49,8 +48,6 @@ app.use('/', indexRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-app.get('*',)
 
 
 // error handler
