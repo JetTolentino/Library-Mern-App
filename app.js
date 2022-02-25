@@ -6,6 +6,7 @@ var logger = require('morgan');
 const cors = require('cors')
 var indexRouter = require('./routes/index');
 const mongoose = require('mongoose')
+const path = require('path')
 require('dotenv').config()
 
 var app = express();
@@ -21,7 +22,10 @@ mongoose.connect(process.env.MONGODB_URI)
 )
 
 if(process.env.NODE_ENV === 'production'){
-  app.use(express.static('client/build'));
+  app.use(express.static(path.resolve(__dirname, "./client/build")));
+  app.get("*", function (request, response) {
+    response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+  });
 }
 
 // view engine setup
@@ -46,6 +50,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+app.get('*',)
 
 
 // error handler
