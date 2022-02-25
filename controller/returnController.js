@@ -17,6 +17,7 @@ const returnBook = async(req,res) => {
       console.log(booksBorrowed)
       student.booksBorrowed = booksBorrowed
       book.availability = true
+      book.borrowedBy = null
       book.save()
       student.save().then(student =>{
         console.log("SUCCESSFULLY RETURNED BOOK")
