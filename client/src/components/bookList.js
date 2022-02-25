@@ -33,6 +33,7 @@ const BookList = () => {
         const author = props.author
         const availability = props.availability
         const bookId = props.bookId
+        const borrowedBy = props.borrowedBy
 
         const isAvailable = (availability)=>{
             if(availability === true){
@@ -51,6 +52,7 @@ const BookList = () => {
             <td>{title}</td>
             <td>{author}</td>
             {isAvailable(availability)}
+            <td>{borrowedBy}</td>
         </tr>
         )
 
@@ -59,10 +61,10 @@ const BookList = () => {
 
     const Books = (props) => {
         return props.books.map(book => {
-            const {title , availability , author ,bookId} = book
+            const {title , availability , author ,bookId, borrowedBy} = book
             const id = book._id
             return(
-                    <Book  key={id} bookId={bookId} title={title} author={author} availability={availability}/>
+                    <Book  key={id} bookId={bookId} title={title} author={author} availability={availability} borrowedBy={borrowedBy}/>
             )
         })
     }
@@ -169,6 +171,7 @@ const BookList = () => {
                     <th>Title</th>
                     <th>Author</th>
                     <th>Availability</th>
+                    <th>Borrowed By: (Student ID)</th>
                 </tr>
             </thead>
             <tbody>
