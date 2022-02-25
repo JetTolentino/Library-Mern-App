@@ -13,7 +13,7 @@ const StudentList = () => {
 
     useEffect(() => {
         let isMounted = true;  
-        
+
         axios({
             method: 'GET',
             url: 'https://library-app-mern.herokuapp.com/api/studentlist',
@@ -87,7 +87,7 @@ const StudentList = () => {
     const handleSubmit = (e) => {
         axios({
             method: 'POST',
-            url: 'https://library-app-mern.herokuapp.com/api/addstudent',
+            url: 'https://library-app-jet.herokuapp.com/api/addstudent',
             data: {
                 studentId,
                 firstName,
