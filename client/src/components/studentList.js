@@ -16,7 +16,7 @@ const StudentList = () => {
 
         axios({
             method: 'GET',
-            url: 'https://library-app-mern.herokuapp.com/api/studentlist',
+            url: 'https://library-app-jet.herokuapp.com/api/studentlist',
             headers: {
                 'authorization' : `Bearer ${token}`
             },
